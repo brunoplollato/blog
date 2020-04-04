@@ -1,6 +1,6 @@
 org: brunopalollato
 app: blog
-service: serverless-crud
+service: serverless-blog
 
 provider:
   name: aws
