@@ -1,9 +1,11 @@
+org: brunopalollato
+app: blog
 service: serverless-crud
 
 provider:
   name: aws
-  runtime: nodejs4.3
-  region: us-east-1
+  runtime: nodejs10.x
+  region: sa-east-1
   stage: dev
   iamRoleStatements:
     - Effect: Allow
@@ -15,48 +17,48 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      Resource: "arn:aws:dynamodb:sa-east-1:*:*"
 
 functions:
   create:
     handler: handler.create
     events:
       - http:
-          path: todos
+          path: posts
           method: post
           cors: true
   readAll:
     handler: handler.readAll
     events:
       - http:
-          path: todos
+          path: posts
           method: get
           cors: true
   readOne:
     handler: handler.readOne
     events:
       - http:
-          path: todos/{id}
+          path: posts/{id}
           method: get
           cors: true
   update:
     handler: handler.update
     events:
       - http:
-          path: todos/{id}
+          path: posts/{id}
           method: put
           cors: true
   delete:
     handler: handler.delete
     events:
       - http:
-          path: todos/{id}
+          path: posts/{id}
           method: delete
           cors: true
 
 resources:
   Resources:
-    TodosDynamoDbTable:
+    postsDynamoDbTable:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
       Properties:
@@ -71,4 +73,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: 'todos'
+        TableName: 'posts'

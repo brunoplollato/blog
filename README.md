@@ -18,32 +18,32 @@ Simply perform requests against the exposed endpoints:
 ### Create
 
 ```bash
-curl -X POST https://XXXX.execute-api.region.amazonaws.com/dev/todos --data '{ "body" : "Learn Serverless" }'
+curl -X POST https://XXXX.execute-api.region.amazonaws.com/dev/posts --data '{ "body" : "Learn Serverless" }'
 ```
 
 ### Read all
 
 
 ```bash
-curl https://XXXX.execute-api.region.amazonaws.com/dev/todos
+curl https://XXXX.execute-api.region.amazonaws.com/dev/posts
 ```
 
 ### Read one
 
 ```bash
-curl https://XXXX.execute-api.region.amazonaws.com/dev/todos/<id>
+curl https://XXXX.execute-api.region.amazonaws.com/dev/posts/<id>
 ```
 
 ### Update
 
 ```bash
-curl -X PUT https://XXXX.execute-api.region.amazonaws.com/dev/todos/<id> --data '{ "body" : "Understand Serverless" }'
+curl -X PUT https://XXXX.execute-api.region.amazonaws.com/dev/posts/<id> --data '{ "body" : "Understand Serverless" }'
 ```
 
 ### DELETE
 
 ```bash
-curl -X DELETE https://XXXX.execute-api.region.amazonaws.com/dev/todos/<id>
+curl -X DELETE https://XXXX.execute-api.region.amazonaws.com/dev/posts/<id>
 ```
 
 ## AWS services used
