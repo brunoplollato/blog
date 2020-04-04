@@ -12,7 +12,8 @@ module.exports = (event, callback) => {
 
   const params = {
     TableName: 'posts',
-    Item: data
+    Item: data,
+    Title: 'Test'
   };
 
   return dynamoDb.put(params, (error, data) => {
